@@ -2,7 +2,7 @@ var formulario = document.querySelector("#form")
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault(); /* método correcto .preventDefault */
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
@@ -23,9 +23,7 @@ formulario.onsubmit = function(e) {
     e.classList.add("error")
   }
 
-if (nombre.length > 0 
-  && (edad > 18 
-    && edad < 120) ) {
+if (nombre.length > 0 && (edad >= 18 && edad <= 120) ) { /* Se agrega el simbolo = */
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
@@ -55,7 +53,7 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 var lista = document.getElementById("lista-de-invitados")
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList.add("elemento-lista")/* es .add */
 lista.appendChild(elementoLista)
 
 var spanNombre = document.createElement("span")
